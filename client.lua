@@ -7,8 +7,8 @@ end
 RegisterCommand('coords', function()
     local coords, heading = GetEntityCoords(PlayerPedId()), GetEmtityHeading(PlayerPedId())
     SendNUIMessage({
-        type='clipboard',
-        data='' .. vec(coords.x, coords.y, coords.z, heading)
+        type = 'clipboard',
+        data = '' .. vec(coords.x, coords.y, coords.z, heading)
     })
     ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, heading))
 end)
