@@ -6,7 +6,7 @@ ShowNotificationTicker = function(msg)
 end
 
 RegisterCommand('coords', function()
-    local coords = GetEntityCoords(GetPlayerPed(-1))
-    SendNUIMessage({type='clipboard', data=''..vec(coords.x, coords.y, coords.z, GetEntityHeading(GetPlayerPed(-1)))})
-    ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, GetEntityHeading(GetPlayerPed(-1))))
+    local coords = GetEntityCoords(PlayerPedId(-1))
+    SendNUIMessage({type='clipboard', data=''..vec(coords.x, coords.y, coords.z, GetEntityHeading(PlayerPedId(-1)))})
+    ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, GetEntityHeading(PlayerPedId(-1))))
 end)
