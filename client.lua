@@ -1,12 +1,14 @@
-ShowNotificationTicker = function(msg)
-    logInPauseMenu = 1
+ShowNotificationTicker = function(message)
     BeginTextCommandThefeedPost('STRING')
-    AddTextComponentSubstringPlayerName(msg)
-    EndTextCommandThefeedPostTicker(0,logInPauseMenu)
+    AddTextComponentSubstringPlayerName(message)
+    EndTextCommandThefeedPostTicker(0, 1)
 end
 
 RegisterCommand('coords', function()
-    local coords = GetEntityCoords(GetPlayerPed(-1))
-    SendNUIMessage({type='clipboard', data=''..vec(coords.x, coords.y, coords.z, GetEntityHeading(GetPlayerPed(-1)))})
-    ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, GetEntityHeading(GetPlayerPed(-1))))
+    local coords, heading = GetEntityCoords(PlayerPedId()), GetEntityHeading(PlayerPedId())
+    SendNUIMessage({
+        type = 'clipboard',
+        data = '' .. vec(coords.x, coords.y, coords.z, heading)
+    })
+    ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, heading))
 end)
