@@ -5,7 +5,7 @@ ShowNotificationTicker = function(message)
 end
 
 RegisterCommand('coords', function()
-    local coords, heading = GetEntityCoords(PlayerPedId()), GetEmtityHeading(PlayerPedId())
+    local coords, heading = GetEntityCoords(PlayerPedId()), GetEntityHeading(PlayerPedId())
     SendNUIMessage({
         type = 'clipboard',
         data = '' .. vec(coords.x, coords.y, coords.z, heading)
