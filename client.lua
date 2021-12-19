@@ -12,3 +12,5 @@ RegisterCommand('coords', function()
     })
     ShowNotificationTicker('Copied to clipboard! ' .. vec(coords.x, coords.y, coords.z, heading))
 end)
+
+RegisterKeyMapping('coords', 'Copy coordinates to clipboard', 'keyboard', 'PAGEUP')
